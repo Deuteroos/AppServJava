@@ -11,14 +11,13 @@ public class ServeurEmprunt extends Serveur{
 		// TODO Auto-generated constructor stub
 	}
 
-	public void run() {
-		 
+	public void run() {		 
 		try {
 			while(true)
-			 new Emprunt(listen_socket.accept()).lancer(); 
+			 new Emprunt(getListen_socket().accept()).lancer(); 
 		} 
 		catch(IOException e) {
-			try {this.listen_socket.close();} catch(IOException e1) {}
+			try {this.getListen_socket().close();} catch(IOException e1) {}
 			System.err.println("Pb sur le port d'écoute :" + e);
 		}
 	}
