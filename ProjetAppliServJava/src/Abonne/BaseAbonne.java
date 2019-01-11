@@ -1,11 +1,16 @@
 package Abonne;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class BaseAbonne {
 	private Collection<Abonne> Abo;
 	
 	private static BaseAbonne _instance = new BaseAbonne();
+	
+	private BaseAbonne() {
+		Abo=new ArrayList<Abonne>();
+	}
 	
 	public static synchronized BaseAbonne getInstance() {
 		return _instance;

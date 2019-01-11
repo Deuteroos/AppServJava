@@ -28,15 +28,16 @@ public class Emprunt extends Service{
 			Abonne a = null;
 			while(a == null) {
 				String line = in.readLine();
+				//System.out.println(line);
 				int numAbo = Integer.parseInt(line);
 				try {
 					a = getBaseAbo().getAboByNum(numAbo);					
 				}
 				catch(IllegalArgumentException i){
-					out.print("Erreur de connexion, l'identification a échoué !");
+					out.println("Erreur de connexion, l'identification a échoué !");
 				}
 			}
-			
+			out.println("Connexion réussie !");
 			Document d = null;
 			while(d == null) {
 				String line = in.readLine();
@@ -46,12 +47,14 @@ public class Emprunt extends Service{
 					synchronized (d) {
 						d.emprunter(a);
 					}
+					out.println("Le document a été emprunté avec succès !");
 				}
 				catch(IllegalArgumentException i){
-					out.print("Erreur, le document demandé n'existe pas !");
+					out.println("Erreur, le document demandé n'existe pas !");
 				}
 				catch(PasLibreException e){
-					out.print("Le document demandé n'est pas disponnible !");					
+					out.println("Le document demandé n'est pas disponible !");
+					d=null;
 				}
 			}
 			
