@@ -12,15 +12,14 @@ public class ServeurReservation extends Serveur{
 
 	@Override
 	public void run() {
-		 
-		/*try {
+		try {
 			while(true)
-			 new Reservation(listen_socket.accept()).lancer(); 
+			 new Reservation(getListen_socket().accept()).lancer(); 
 		} 
 		catch(IOException e) {
-			try {this.listen_socket.close();} catch(IOException e1) {}
+			try {this.getListen_socket().close();} catch(IOException e1) {}
 			System.err.println("Pb sur le port d'écoute :" + e);
-		}*/
+		}
 	}
 
 }
