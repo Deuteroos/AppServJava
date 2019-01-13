@@ -29,7 +29,7 @@ public class ClientEmprunt {
 			BufferedReader in = new BufferedReader (new InputStreamReader(socket.getInputStream ( )));
 			PrintWriter out = new PrintWriter (socket.getOutputStream ( ), true);
 			String line = "";
-			while(!line.equals("Connexion réussie !")) {
+			while(!line.equals("Connexion reussie !")) {
 				demandeNumAbo();
 				System.out.println(numAbo);
 				out.println(numAbo);
@@ -37,7 +37,7 @@ public class ClientEmprunt {
 				reponseServeur(line);
 			}
 			line = "";
-			while(!line.equals("Le document a été emprunté avec succès !")) {
+			while(!line.equals("Le document a ete emprunte avec succes !")) {
 				demandeNumDoc();
 				out.println(numDoc);
 				line = in.readLine();
@@ -47,20 +47,20 @@ public class ClientEmprunt {
 		catch (IOException e) {
 		}
 		//Fin du service d'emprunt
-		System.out.println("*********Connexion "+this.getClass()+" terminée");
+		System.out.println("*********Connexion "+this.getClass()+" terminee");
 		try {socket.close();} catch (IOException e2) {}
 	}
 
 	private void demandeNumDoc() throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Veuillez entrer le numéro du document");
+		System.out.println("Veuillez entrer le numero du document");
 		BufferedReader clavier = new BufferedReader(new InputStreamReader(System.in));
 		numDoc = Integer.parseInt(clavier.readLine());
 	}
 
 	private void demandeNumAbo() throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Veuillez entrer votre numéro d'abonné");
+		System.out.println("Veuillez entrer votre numero d'abonne");
 		BufferedReader clavier = new BufferedReader(new InputStreamReader(System.in));
 		numAbo = Integer.parseInt(clavier.readLine());
 	}

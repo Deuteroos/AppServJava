@@ -23,9 +23,7 @@ public class ClientRetour {
 			BufferedReader in = new BufferedReader (new InputStreamReader(socket.getInputStream ( )));
 			PrintWriter out = new PrintWriter (socket.getOutputStream ( ), true);
 			String line = "";
-			reponseServeur(line);
-			line="";
-			while(!line.equals("Le document a été retourné avec succès !")) {
+			while(!line.equals("Le document a ete retourne avec succes !")) {
 				demandeNumDoc();
 				out.println(numDoc);
 				line = in.readLine();
@@ -35,13 +33,13 @@ public class ClientRetour {
 		catch (IOException e) {
 		}
 		//Fin du service d'emprunt
-		System.out.println("*********Connexion "+this.getClass()+" terminée");
+		System.out.println("*********Connexion "+this.getClass()+" terminee");
 		try {socket.close();} catch (IOException e2) {}
 	}
 
 	private void demandeNumDoc() throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Veuillez entrer le numéro du document");
+		System.out.println("Veuillez entrer le numero du document");
 		BufferedReader clavier = new BufferedReader(new InputStreamReader(System.in));
 		numDoc = Integer.parseInt(clavier.readLine());
 	}

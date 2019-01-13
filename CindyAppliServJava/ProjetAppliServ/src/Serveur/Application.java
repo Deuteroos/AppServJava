@@ -17,13 +17,15 @@ public class Application {
 
 	public static void main(String[] args) {
 		Bibliotheque b = Bibliotheque.getInstance();
-		Document Doc = new Livre(1, "salut");
-		Document Do = new Livre(2, "cava");
+		Document Doc = new Livre(10, "salut");
+		Document Do = new Livre(20, "cava");
 		Abonne A = new Abonne(1);
+                Abonne A2 = new Abonne(2);
 		BaseAbonne c = BaseAbonne.getInstance();
 		b.ajoutDoc(Doc);
 		b.ajoutDoc(Do);
 		c.ajoutAbo(A);
+                c.ajoutAbo(A2);
 		
 		try {
 			new Thread(new ServeurReservation()).start();
@@ -35,7 +37,7 @@ public class Application {
 
 			
 		} catch (IOException e) {
-				System.err.println("Pb lors de la création du serveur : " +  e);			
+				System.err.println("Pb lors de la creation du serveur : " +  e);			
 		}
 	}
 }

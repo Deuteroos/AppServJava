@@ -35,7 +35,7 @@ public class Livre implements Document{
 			 throw new PasLibreException();
 		reserveur = ab;
 		Timer timer=new Timer();
-		timer.schedule(new TimeResa.Resa(this),3);
+		timer.schedule(new TimeResa.Resa(this),30000);
 	}
 
 	@Override

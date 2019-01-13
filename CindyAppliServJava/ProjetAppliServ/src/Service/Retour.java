@@ -17,7 +17,7 @@ public class Retour extends Service{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		System.out.println("*********Connexion "+this.getClass()+" démarrée");
+		System.out.println("*********Connexion "+this.getClass()+" demarree");
 		System.out.println("*********Connexion "+this.getClient().getInetAddress());
 		try {
 			BufferedReader in = new BufferedReader (new InputStreamReader(getClient().getInputStream ( )));
@@ -32,17 +32,17 @@ public class Retour extends Service{
 					synchronized (d) {
 						d.retour();;
 					}
-					out.println("Le document a été retourné avec succès !");
+					out.println("Le document a ete retourne avec succes !");
 				}
 				catch(IllegalArgumentException i){
-					out.println("Erreur, le document demandé n'existe pas !");
+					out.println("Erreur, le document demandes n'existe pas !");
 				}
 			}			
 		}
 		catch (IOException e) {
 		}
 		//Fin du service d'emprunt
-		System.out.println("*********Connexion "+this.getClass()+" terminée");
+		System.out.println("*********Connexion "+this.getClass()+" terminee");
 		try {getClient().close();} catch (IOException e2) {}
 	}
 

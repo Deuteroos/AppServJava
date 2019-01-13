@@ -18,7 +18,7 @@ public class Reservation extends Service{
 
 	@Override
 	public void run() {
-		System.out.println("*********Connexion "+this.getClass()+" démarrée");
+		System.out.println("*********Connexion "+this.getClass()+" demarree");
 		System.out.println("*********Connexion "+this.getClient().getInetAddress());
 		try {
 			BufferedReader in = new BufferedReader (new InputStreamReader(getClient().getInputStream ( )));
@@ -31,10 +31,10 @@ public class Reservation extends Service{
 					a = getBaseAbo().getAboByNum(numAbo);
 				}
 				catch(IllegalArgumentException i){
-					out.println("Erreur de connexion, l'identification a échoué !");
+					out.println("Erreur de connexion, l'identification a echoue !");
 				}
 			}
-			out.println("Connexion réussie !");
+			out.println("Connexion reussie !");
 			Document d = null;
 			while(d == null) {
 				String line = in.readLine();
@@ -44,13 +44,13 @@ public class Reservation extends Service{
 					synchronized (d) {
 						d.reserver(a);
 					}
-					out.println("Le document a été réservé avec succès !");
+					out.println("Le document a ete reserve avec succes !");
 				}
 				catch(IllegalArgumentException i){
-					out.println("Erreur, le document demandé n'existe pas !");
+					out.println("Erreur, le document demande n'existe pas !");
 				}
 				catch(PasLibreException e){
-					out.println("Le document demandé n'est pas disponnible !");					
+					out.println("Le document demande n'est pas disponnible !");					
 				}
 			}
 			
@@ -58,7 +58,7 @@ public class Reservation extends Service{
 		catch (IOException e) {
 		}
 		//Fin du service d'emprunt
-		System.out.println("*********Connexion "+this.getClass()+" terminée");
+		System.out.println("*********Connexion "+this.getClass()+" terminee");
 		try {getClient().close();} catch (IOException e2) {}
 	}
 }
